@@ -1,17 +1,18 @@
 ﻿namespace MyWebApp.Interfaces
 {
-    public interface ISingletonWelcomeService
+    public interface IWelcomeService
     {
         string GetWelcomeMessage();
     }
-
-    public interface IScopedWelcomeService
+    public interface ISingletonWelcomeService : IWelcomeService
     {
-        string GetWelcomeMessage();
     }
 
-    public interface ITransientWelcomeService
+    public interface IScopedWelcomeService : IWelcomeService
     {
-        string GetWelcomeMessage();
+    }
+
+    public interface ITransientWelcomeService : IWelcomeService
+    {
     }
 }

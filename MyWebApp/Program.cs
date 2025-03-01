@@ -13,7 +13,7 @@ var app = builder.Build();
 app.Use(async (context, next) =>
 {
     await next();
-    Console.WriteLine($"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode}");
+        Console.WriteLine($"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode}");
 
 });
 

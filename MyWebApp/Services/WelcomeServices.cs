@@ -1,52 +1,33 @@
 ﻿using MyWebApp.Interfaces;
 
-public class TransientWelcomeService : ITransientWelcomeService
+public abstract class WelcomeServiceBase
 {
     private readonly DateTime _serviceCreated;
     private readonly Guid _serviceId;
 
-    public TransientWelcomeService()
+    protected WelcomeServiceBase()
     {
         _serviceCreated = DateTime.Now;
         _serviceId = Guid.NewGuid();
     }
 
-    public string GetWelcomeMessage()
+    protected string GetMessage(string serviceType)
     {
-        return $"[Transient] Created at {_serviceCreated}, ID: {_serviceId}";
+        return $"[{serviceType}] Created at {_serviceCreated}, ID: {_serviceId}";
     }
 }
 
-public class ScopedWelcomeService : IScopedWelcomeService
+public class TransientWelcomeService : WelcomeServiceBase, ITransientWelcomeService
 {
-    private readonly DateTime _serviceCreated;
-    private readonly Guid _serviceId;
-
-    public ScopedWelcomeService()
-    {
-        _serviceCreated = DateTime.Now;
-        _serviceId = Guid.NewGuid();
-    }
-
-    public string GetWelcomeMessage()
-    {
-        return $"[Scoped] Created at {_serviceCreated}, ID: {_serviceId}";
-    }
+    public string GetWelcomeMessage() => GetMessage("Transient");
 }
 
-public class SingletonWelcomeService : ISingletonWelcomeService
+public class ScopedWelcomeService : WelcomeServiceBase, IScopedWelcomeService
 {
-    private readonly DateTime _serviceCreated;
-    private readonly Guid _serviceId;
+    public string GetWelcomeMessage() => GetMessage("Scoped");
+}
 
-    public SingletonWelcomeService()
-    {
-        _serviceCreated = DateTime.Now;
-        _serviceId = Guid.NewGuid();
-    }
-
-    public string GetWelcomeMessage()
-    {
-        return $"[Singleton] Created at {_serviceCreated}, ID: {_serviceId}";
-    }
+public class SingletonWelcomeService : WelcomeServiceBase, ISingletonWelcomeService
+{
+    public string GetWelcomeMessage() => GetMessage("Singleton");
 }
