@@ -1,5 +1,5 @@
+using Microsoft.AspNetCore.Rewrite;
 using MyWebApp.Interfaces;
-using static System.Formats.Asn1.AsnWriter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +9,15 @@ builder.Services.AddScoped<IScopedWelcomeService, ScopedWelcomeService>();
 builder.Services.AddTransient<ITransientWelcomeService, TransientWelcomeService>();
 
 var app = builder.Build();
+
+app.Use(async (context, next) =>
+{
+    await next();
+    Console.WriteLine($"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode}");
+
+});
+
+app.UseRewriter(new RewriteOptions().AddRedirect("history", "about"));
 
 app.MapGet("/", (
     ISingletonWelcomeService singletonWelcomeService,
@@ -23,5 +32,7 @@ app.MapGet("/", (
 
     return $"{message1}\n{message2}\n{message3}";
 });
+
+app.MapGet("/about", () => "This is an endpoint that shows the usage of UseRewriter middleware.");
 
 app.Run();
