@@ -365,3 +365,4 @@ FodyWeavers.xsd
 PizzaStoreWithDb/Pizzas.db
 PizzaStoreWithDb/Properties/serviceDependencies.json
 PizzaStoreWithDb/Properties/serviceDependencies.local.json
+lib/

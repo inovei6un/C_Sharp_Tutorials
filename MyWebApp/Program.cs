@@ -28,7 +28,7 @@ app.MapGet("/", (
 
     string message2 = $"Scoped: {scopedWelcomeService.GetWelcomeMessage()}";
 
-    string message3 = $"Transient1: {transientWelcomeService.GetWelcomeMessage()}";
+    string message3 = $"Transient: {transientWelcomeService.GetWelcomeMessage()}";
 
     return $"{message1}\n{message2}\n{message3}";
 });

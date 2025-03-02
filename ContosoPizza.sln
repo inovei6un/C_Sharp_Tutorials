@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreWithDb", "PizzaSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebApp", "MyWebApp\MyWebApp.csproj", "{667DD382-6D94-4763-B895-33E2FBE190DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlpineSkiHouse", "AlpineSkiHouse\AlpineSkiHouse.csproj", "{67D9BEF2-E8A1-4753-A5B4-9E9250CF4174}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{667DD382-6D94-4763-B895-33E2FBE190DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{667DD382-6D94-4763-B895-33E2FBE190DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{667DD382-6D94-4763-B895-33E2FBE190DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67D9BEF2-E8A1-4753-A5B4-9E9250CF4174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D9BEF2-E8A1-4753-A5B4-9E9250CF4174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D9BEF2-E8A1-4753-A5B4-9E9250CF4174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D9BEF2-E8A1-4753-A5B4-9E9250CF4174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
